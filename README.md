@@ -1,2 +1,2 @@
-# eSvadba-FE
-eSvadba frontend
+# eSvadba
+eSvadba web app
