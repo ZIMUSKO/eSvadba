@@ -14,7 +14,7 @@ const MyApp = (props) => {
   return (
     <>
       <Head>
-        <title>{pageTitle || 'Akular'}</title>
+        <title>{pageTitle || 'Moja svadba'}</title>
       </Head>
       <ApolloProvider client={apollo}>
         <Component {...pageProps} />

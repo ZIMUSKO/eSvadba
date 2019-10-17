@@ -1,10 +1,10 @@
 module.exports = {
-  dbName: 'react-next-template',
+  dbName: 'esvadba',
   superAdmin: {
-    superAdminEmail: 'info@codebrothers.sk',
+    superAdminEmail: 'zimus',
     superAdminFirstName: 'Admin',
     superAdminLastName: 'Admin',
-    superAdminPassword: 'codebrothersXP8975',
+    superAdminPassword: '123',
   },
-  superSecret: 'supersecretEcMcStringyhatshouldbeNotBrokenever59234ffggjjeerrsstt4kk21l1',
+  superSecret: 'asôdlfkjasdlfjk',
 };
