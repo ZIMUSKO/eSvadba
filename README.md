@@ -1,2 +1,1 @@
-# eSvadba
-eSvadba web app
+# react-next-template
