@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { Container } from 'next/app';
 import Head from 'next/head';
 import { ApolloProvider } from 'react-apollo';
+
 import withApollo from '../app-data/graphql/withApollo';
 
 const MyApp = (props) => {
@@ -11,14 +12,14 @@ const MyApp = (props) => {
   } = props;
 
   return (
-    <Container>
+    <>
       <Head>
-        <title>{pageTitle || 'REACT-NEXT-TEMPLATE'}</title>
+        <title>{pageTitle || 'Akular'}</title>
       </Head>
       <ApolloProvider client={apollo}>
         <Component {...pageProps} />
       </ApolloProvider>
-    </Container>
+    </>
   );
 };
 

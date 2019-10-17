@@ -1,19 +1,27 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+export default class MyDocument extends Document {
+  static getInitialProps({ renderPage }) {
+    const sheet = new ServerStyleSheet();
+
+    const page = renderPage(App => props => (sheet.collectStyles(<App {...props} />)));
+    const styleTags = sheet.getStyleElement();
+
+    return { ...page, styleTags };
   }
 
   render() {
+    const { styleTags } = this.props;
+
     return (
       <Html>
         <Head>
-          <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+          {styleTags}
         </Head>
         <body>
           <Main />
@@ -23,5 +31,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;

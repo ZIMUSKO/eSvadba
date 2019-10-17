@@ -5,6 +5,8 @@ import { compose, graphql } from 'react-apollo';
 import { getLocaleQuery } from '../../../graphql/query';
 import { toggleLangMutation } from '../../../graphql/mutation';
 
+import { UL, LI, A } from './styles/navigation.style';
+
 import localisation from '../../localisation/Navigation';
 
 const Navigation = compose(
@@ -13,21 +15,19 @@ const Navigation = compose(
 )(({ getLocale: { lang }, toggleLang }) => (
   <div className="border mb-4 p-2">
     <Container>
-      <ul className="d-flex m-0 p-0 list-unstyled justify-content-start">
-        <li className="mr-2">
+      <UL className="d-flex m-0 p-0 list-unstyled justify-content-start">
+        <LI className="mr-2">
           <Link href="/">
-            <button type="button" className="btn btn-link">{localisation[lang].homeLink}</button>
+            <A>{localisation[lang].homeLink}</A>
           </Link>
-        </li>
-        <li className="mr-2">
+        </LI>
+        <LI className="mr-2">
           <Link href="/sub-page">
-            <button type="button" className="btn btn-link">{localisation[lang].subPageLink}</button>
+            <A>{localisation[lang].subPageLink}</A>
           </Link>
-        </li>
-        <li className="ml-auto">
-          <button
-            type="button"
-            className="btn btn-link"
+        </LI>
+        <LI className="ml-auto">
+          <A
             onClick={async () => {
               try {
                 await toggleLang({
@@ -39,9 +39,9 @@ const Navigation = compose(
             }}
           >
             {lang.toUpperCase()}
-          </button>
-        </li>
-      </ul>
+          </A>
+        </LI>
+      </UL>
     </Container>
   </div>
 ));
