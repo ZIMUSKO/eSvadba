@@ -9,7 +9,7 @@ const db = require('./app-data/db');
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = nextjsApp({ dev });
 const handle = nextApp.getRequestHandler();
-const port = 3003;
+const port = 3005;
 
 const App = async () => {
   try {
