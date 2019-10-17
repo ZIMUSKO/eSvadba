@@ -6,7 +6,7 @@ const IndexPage = () => (
     <h1 className="text-center">
       Hello Stephanides!
       <br />
-      Welcome to REACT-NEXT-TEMPLATE!
+      Welcome to wedding portal!
     </h1>
   </Layout>
 );

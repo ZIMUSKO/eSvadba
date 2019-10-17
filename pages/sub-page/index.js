@@ -6,7 +6,7 @@ const SubPage = () => (
     <h1 className="text-center">
       Hello Stephanides!
       <br />
-      Welcome to REACT-NEXT-TEMPLATE Sub-page!
+      Welcome to Sub-page!
     </h1>
   </Layout>
 );
