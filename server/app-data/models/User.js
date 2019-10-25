@@ -1,7 +1,8 @@
 import { AuthenticationError } from 'apollo-server-errors';
 import mongoose from 'mongoose';
 import { hash, compare } from 'bcryptjs';
-import { SESSION_NAME } from '../config';
+import jwt from 'jsonwebtoken';
+import { SESSION_NAME, JWT_SECRET } from '../config';
 
 const userSchema = new mongoose.Schema({
 
@@ -54,14 +55,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     enum: ['User', 'Supplier', 'Administrator'],
   },
-  supplierData: {
-    type: Object,
-    default: {},
-  },
-  userData: {
-    type: Object,
-    default: {},
-  },
 }, {
   timestamps: true,
 });
@@ -95,16 +88,21 @@ userSchema.statics.attemptSignIn = async function (email, password) {
   return user;
 };
 
-const signedIn = req => req.session.userId;
+const verifyToken = token => jwt.verify(token, JWT_SECRET);
 
-userSchema.statics.ensureSignedIn = (req) => {
-  if (!signedIn(req)) {
+userSchema.statics.ensureSignedIn = (token) => {
+  if (!token) {
     throw new AuthenticationError('You must be signed in');
   }
+  const verified = verifyToken(token);
+  if (!verified) {
+    throw new AuthenticationError('You must be signed in');
+  }
+  return verified;
 };
 
-userSchema.statics.ensureSignedOut = (req) => {
-  if (signedIn(req)) {
+userSchema.statics.ensureSignedOut = (token) => {
+  if (token && verifyToken(token)) {
     throw new AuthenticationError('You are already signed in.');
   }
 };

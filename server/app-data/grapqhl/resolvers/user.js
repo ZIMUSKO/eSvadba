@@ -2,9 +2,11 @@
 import { UserInputError } from 'apollo-server-express';
 import mongoose from 'mongoose';
 import Joi from 'joi';
+import jwt from 'jsonwebtoken';
 
 // Import models
 import { User } from '../../models';
+import { JWT_SECRET, JTW_EXPIRATION } from '../../config';
 
 // Import Schemas
 import { userSignUpSchema, userSignInSchema } from '../../schema';
@@ -21,8 +23,8 @@ export default {
       return User.findById(id);
     },
 
-    me: (root, { id }, { req }, info) => {
-      return User.findById(req.session.userId);
+    me: (root, args, { userInfo }, info) => {
+      return userInfo;
     },
   },
   Mutation: {
@@ -32,11 +34,13 @@ export default {
       req.session.userId = user.id;
       return user;
     },
-    signIn: async (root, args, { req }, info) => {
+    signIn: async (root, args, { res },  info) => {
       await Joi.validate(args, userSignInSchema, { abortEarly: false });
 
       const user = await User.attemptSignIn(args.email, args.password);
-      req.session.userId = user.id;
+      const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: JTW_EXPIRATION });
+
+      res.setHeader('x-access-token', token);
       return user;
     },
 

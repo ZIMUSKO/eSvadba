@@ -8,7 +8,8 @@ class GuestDirective extends SchemaDirectiveVisitor {
 
     field.resolve = function (...args) {
       const [, , context] = args;
-      User.ensureSignedOut(context.req);
+      const token = context.req.header('x-access-token');
+      User.ensureSignedOut(token);
       return resolve.apply(this, args);
     };
   }

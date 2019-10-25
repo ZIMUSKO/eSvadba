@@ -49,19 +49,6 @@ const App = async () => {
     }));
 
     const server = new ApolloServer({
-      // context: async ({ req }) => {
-      //   try {
-      //     if (req) {
-      //       const token = req.headers['x-access-token'];
-      //
-      //       return { token };
-      //     }
-      //
-      //     return null;
-      //   } catch (err) {
-      //     throw err;
-      //   }
-      // },
       context: ({ req, res }) => ({ req, res }),
       typeDefs,
       resolvers,
