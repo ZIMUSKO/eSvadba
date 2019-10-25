@@ -1,7 +1,7 @@
-module.exports = {
-  Query: {
-    dummyQuery: async () => {
-      return [];
-    },
-  },
-};
+import category from './category';
+import user from './user';
+
+export default [
+  category,
+  user
+]

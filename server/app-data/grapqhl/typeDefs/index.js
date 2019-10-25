@@ -1,16 +1,10 @@
-const { gql } = require('apollo-server-express');
+import root from './root';
+import supplierTypeDefs from './supplier';
+import user from './user';
 
-const typeDefs = gql`
-  type dummyData {
-    _id: String
-    value: String
-  }
-  type Query {
-    dummyQuery: [dummyData]
-  }
-  schema {
-    query: Query
-  }
-`;
 
-module.exports = typeDefs;
+export default [
+  root,
+  user,
+  ...supplierTypeDefs,
+];
