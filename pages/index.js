@@ -1,13 +1,12 @@
 import React from 'react';
 import Layout from '../app-data/shared/components/Layout';
+import Header from '../app-data/pages/index/components/Header';
+import Suppliers from '../app-data/pages/index/components/Suppliers';
 
 const IndexPage = () => (
   <Layout>
-    <h1 className="text-center">
-      Hello Stephanides!
-      <br />
-      Welcome to wedding portal!
-    </h1>
+    <Header />
+    <Suppliers />
   </Layout>
 );
 
