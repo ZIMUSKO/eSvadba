@@ -24,7 +24,7 @@ export const H6 = styled.h6`
 export const LocationHolder = styled.div`
   display:flex;
   align-items: center;
-  padding-left:2rem;
+  padding-left:1rem;
 `;
 export const LocationIcon = styled.img`
   margin-right: 1rem;
