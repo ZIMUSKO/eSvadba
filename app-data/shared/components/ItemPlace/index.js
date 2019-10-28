@@ -24,14 +24,14 @@ const ItemPlace = ({
           <PriceFrom>Cena od</PriceFrom>
           <Price>
             {price}
-            Eur
+            &nbsp;Eur
           </Price>
         </PriceHolder>
         <CapacityHolder>
           <CapacityFrom>Kapacita</CapacityFrom>
           <Capacity>
             {capacity}
-            ľudí
+            &nbsp;ľudí
           </Capacity>
         </CapacityHolder>
       </InfoHolder>

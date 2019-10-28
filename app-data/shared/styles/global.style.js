@@ -24,5 +24,8 @@ export default createGlobalStyle`
       min-height:80vh;
       top:84px;
     }
+    #blogforum{
+      margin-top:5rem;
+    }
   }
 `;
