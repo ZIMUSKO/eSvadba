@@ -1,10 +1,17 @@
 {
   "en": {
-    "homeLink": "Home",
-    "subPageLink": "Sub Page"
+    "home": "Home",
+    "mywedding": "my wedding"
   },
   "sk": {
-    "homeLink": "Domov",
-    "subPageLink": "Podstránka"
+    "home": "Domov",
+    "mywedding": "moja svadba",
+    "places":"svadobné miesta",
+    "supplier":"dodávatelia",
+    "forum":"fórum",
+    "blog":"blog",
+    "inspiration":"inšpirácia",
+    "sale":"bazár",
+    "events":"udalosti"
   }
 }

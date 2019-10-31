@@ -1,16 +1,15 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
+import Styles, { Reset } from '../../styles/global.style';
 
 const Layout = ({ children }) => (
-  <div>
+  <>
+    <Reset />
+    <Styles />
     <Navigation />
-    <Container>
-      { children }
-    </Container>
-  </div>
+    { children }
+  </>
 );
 
 Layout.propTypes = {
