@@ -1,9 +1,14 @@
-import { AuthenticationError } from 'apollo-server-errors';
-import mongoose from 'mongoose';
+import { AuthenticationError } from 'apollo-server-express';
+import mongoose, { Schema } from 'mongoose';
 import { hash, compare } from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { SESSION_NAME, JWT_SECRET } from '../config';
 
+export const UserTypes = {
+  CUSTOMER: 'Customer',
+  VENDOR: 'Vendor',
+  ADMINISTRATOR: 'Administrator',
+};
 const userSchema = new mongoose.Schema({
 
   email: {
@@ -53,7 +58,11 @@ const userSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['User', 'Supplier', 'Administrator'],
+    enum: [UserTypes.CUSTOMER, UserTypes.VENDOR, UserTypes.ADMINISTRATOR],
+  },
+  vendorData: {
+    type: Schema.Types.ObjectId,
+    ref: 'vendorData',
   },
 }, {
   timestamps: true,
@@ -74,9 +83,10 @@ userSchema.methods.matchesPassword = function (password) {
   return compare(password, this.password);
 };
 
-userSchema.statics.attemptSignIn = async function (email, password) {
+userSchema.statics.attemptSignIn = async (email, password, projection) => {
   const message = 'Incorrect email or password. Please try again';
-  const user = await User.findOne({ email });
+  projection.push('password');
+  const user = await User.findOne({ email }, projection);
   if (!user) {
     throw new AuthenticationError(message);
   }

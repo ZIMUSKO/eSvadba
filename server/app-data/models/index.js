@@ -1,2 +1,5 @@
 export { default as User } from './User';
-export { default as SupplierCategory } from './SupplierCategory';
+export { UserTypes } from './User';
+export { default as VendorCategory } from './vendor/Category';
+export { default as VendorData } from './vendor/Data';
+export { initialData as VendorInitialData } from './vendor/Data';
