@@ -28,10 +28,10 @@ export const userSignUpSchema = Joi.object()
       .required()
       .label('Username'),
     password,
-    type: Joi.string()
+    roleName: Joi.string()
       .required()
       .valid('Customer', 'Vendor')
-      .label('Type'),
+      .label('Role Name'),
 
   });
 

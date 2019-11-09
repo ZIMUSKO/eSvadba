@@ -7,7 +7,7 @@ import getProjection from './utils';
 
 // Import models
 import {
-  VendorData, User, UserTypes, VendorInitialData,
+  VendorData, User, UserTypes,
 } from '../../models';
 import { JWT_SECRET, JTW_EXPIRATION } from '../../config';
 
@@ -41,10 +41,12 @@ export default {
         let userData = {};
 
         // Fill extending data - VENDOR
-        if (args.type === UserTypes.VENDOR) {
-          const createdVendorData = await VendorData.create([VendorInitialData], opts);
+        if (args.roleName === UserTypes.VENDOR) {
+          const createdVendorData = await VendorData.create([{}], opts);
           const vendorData = createdVendorData[0];
           userData = Object.assign({}, args, { vendorData: vendorData.id });
+        } else if (args.roleName === UserTypes.CUSTOMER) {
+
         }
 
         // Create user
@@ -80,7 +82,7 @@ export default {
   User: {
     vendorData: async (user, args, context, info) => {
       const projection = getProjection(info);
-      return (await user.populate('vendorData', projection.join(','))
+      return (await user.populate('vendorData', projection.join(', '))
         .execPopulate()).vendorData;
     },
   },

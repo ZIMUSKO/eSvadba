@@ -10,24 +10,15 @@ export const UserTypes = {
   ADMINISTRATOR: 'Administrator',
 };
 const userSchema = new mongoose.Schema({
-
-  email: {
-    type: String,
-    validate: {
-      validator: email => User.doesNotExist({ email }),
-      message: ({ value: email }) => `Email ${email} has already been taken`,
-    },
-  },
-  username: {
-    type: String,
-    validate: {
-      validator: username => User.doesNotExist({ username }),
-      message: ({ value: username }) => `Username ${username} has already been taken`,
-    },
-  },
-  password: {
+  roleName: {
     type: String,
     required: true,
+    enum: [UserTypes.CUSTOMER, UserTypes.VENDOR, UserTypes.ADMINISTRATOR],
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now,
   },
   firstName: {
     type: String,
@@ -39,33 +30,50 @@ const userSchema = new mongoose.Schema({
     minLength: 1,
     maxLength: 150,
   },
-  avatarUrl: {
+  username: {
     type: String,
+    validate: {
+      validator: username => User.doesNotExist({ username }),
+      message: ({ value: username }) => `Username ${username} has already been taken`,
+    },
   },
-  dateJoined: {
-    type: Date,
-    required: true,
-    default: Date.now,
+  email: {
+    type: String,
+    validate: {
+      validator: email => User.doesNotExist({ email }),
+      message: ({ value: email }) => `Email ${email} has already been taken`,
+    },
   },
   emailVerified: {
     type: Boolean,
     default: false,
   },
+  password: {
+    type: String,
+    required: true,
+  },
+  profileImg: {
+    type: String,
+  },
+  dob: {
+    type: String,
+  },
   isActive: {
     type: Boolean,
     default: true,
   },
-  type: {
-    type: String,
-    required: true,
-    enum: [UserTypes.CUSTOMER, UserTypes.VENDOR, UserTypes.ADMINISTRATOR],
+  articles: {
+    type: [Schema.Types.ObjectId],
+    default: [],
   },
   vendorData: {
     type: Schema.Types.ObjectId,
     ref: 'vendorData',
   },
-}, {
-  timestamps: true,
+  customerData: {
+    type: Schema.Types.ObjectId,
+    ref: 'custsomerData',
+  },
 });
 
 userSchema.pre('save', async function () {

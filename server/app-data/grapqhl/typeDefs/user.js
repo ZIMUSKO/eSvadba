@@ -10,7 +10,7 @@ export default gql`
     }
 
     extend type Mutation {
-        signUp(username: String!, email: String!, password: String!, type: String!): User @guest
+        signUp(username: String!, email: String!, password: String!, roleName: String!): User @guest
         signIn(email: String!, password: String!): User @guest
         signOut: Boolean  @auth
     }
@@ -21,8 +21,8 @@ export default gql`
     }
     
     type Media {
-        type: String!
-        url: String!
+        mediaType: String!
+        pathUrl: String!
     }
     
     type Review {
@@ -36,26 +36,56 @@ export default gql`
         professionalism: Float!
         flexibility: Float!
     }
-    
+
     type Location {
         type: String!
         coordinates: [Float!]!
     }
     
+    type Address {
+        addressLine1: String
+        addressLine2: String
+        city: String
+        zipCode: String
+        state: String
+        location: Location
+    }
+    
+    type SocialMedia {
+        facebook: String
+        instagram: String
+        pinterest: String
+        youtube: String
+        vimeo: String
+    }
+    
+    
     type VendorData {
-        category: VendorCategory
-        verified: String!
+        name: String,
+        category: VendorCategory!
+        verified: Boolean!
         phone: String
         website: String
+        email: String
         bio: String
-        rating: Float,
-        faq: [Faq!]
         media: [Media!]
-        reviews: [Review]
-        location: Location
-        
-        
-        
+        address: Address
+#        openingHours: {}
+        pricingFrom: Float
+        pricing: String
+        faq: [Faq!]
+        review: [Review]
+        rating: Float!
+        countOfViews: Int!
+        countOfReviews: Int!
+        countOfMessages: Int!
+        countOfPhoneViews: Int!
+        countOfWebsiteClicks: Int!
+        socialMedia: SocialMedia
+#        deals: {}
+#        availability
+        inspirations: [ID]
+        events: [ID]
     }
 
     type User {
