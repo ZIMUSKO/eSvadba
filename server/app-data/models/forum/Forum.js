@@ -1,4 +1,3 @@
-import { compare } from 'bcryptjs';
 import mongoose, { Schema } from 'mongoose';
 import { ForbiddenError } from 'apollo-server-express';
 

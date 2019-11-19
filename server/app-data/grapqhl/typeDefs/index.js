@@ -3,6 +3,7 @@ import vendorTypeDefs from './vendor';
 import customerTypeDefs from './customer';
 import user from './user';
 import forum from './forum';
+import marketplace from './marketplace';
 
 
 export default [
@@ -11,4 +12,5 @@ export default [
   ...vendorTypeDefs,
   ...customerTypeDefs,
   forum,
+  marketplace,
 ];
