@@ -72,7 +72,7 @@ const userSchema = new mongoose.Schema({
   },
   customerData: {
     type: Schema.Types.ObjectId,
-    ref: 'custsomerData',
+    ref: 'customerData',
   },
 });
 

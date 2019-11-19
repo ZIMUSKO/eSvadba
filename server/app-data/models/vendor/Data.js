@@ -179,4 +179,4 @@ const DataSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('vendorData', DataSchema);
+export default mongoose.model('vendorData', DataSchema, 'vendorData');

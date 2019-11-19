@@ -2,9 +2,9 @@ export const {
   APP_PORT = 4000,
   NODE_ENV = 'development',
 
-  MONGO_USER = 'testuser',
-  MONGO_PASSWORD = 'testpassword',
-  MONGO_HOST = 'cluster0-fwcta.mongodb.net/test?retryWrites=true&w=majority',
+  MONGO_USER = 'application',
+  MONGO_PASSWORD = 'MPVi7VIBwqf6PoDQ',
+  MONGO_HOST = 'esvadba-q1gro.mongodb.net/esvadba?retryWrites=true&w=majority',
 
   JWT_SECRET = '7Y2Hqjt2B5nBt9ZSrRnzQhsf9Y57IjzvFB9aK1oC2Lkljr1on1BMIXcoLk8cGe7J',
   JTW_EXPIRATION = 604800000,

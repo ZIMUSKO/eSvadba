@@ -27,6 +27,8 @@ class AuthDirective extends SchemaDirectiveVisitor {
           }
         }
         context.userInfo = userInfo;
+      } else {
+        context.userInfo = { id: encodedTokenInfo.userId };
       }
       return resolve.apply(this, args);
     };
