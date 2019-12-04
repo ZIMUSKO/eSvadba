@@ -12,5 +12,5 @@ export default [
   ...vendorTypeDefs,
   ...customerTypeDefs,
   forum,
-  marketplace,
+  ...marketplace,
 ];

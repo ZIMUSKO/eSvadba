@@ -8,7 +8,8 @@ const marketplaceSchema = new mongoose.Schema({
     required: true,
   },
   category: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'marketplaceCategory',
     required: true,
   },
   title: {

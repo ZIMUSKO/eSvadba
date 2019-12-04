@@ -22,7 +22,7 @@ class AuthDirective extends SchemaDirectiveVisitor {
         }
 
         if (requiredRole) {
-          if (userInfo.type !== requiredRole) {
+          if (userInfo.roleName !== requiredRole) {
             throw new ForbiddenError('You do not have permission to do that');
           }
         }

@@ -1,5 +1,16 @@
-import Joi from 'joi';
+import Joi from './joi';
 
+export const createMarketplaceCategorySchema = Joi.object()
+  .keys({
+    name: Joi.string()
+      .min(4)
+      .max(30)
+      .required()
+      .label('Category Name'),
+    parentCategory: Joi.string()
+      .objectId()
+      .label('Parent Category'),
+  });
 export const createMarketplacePostSchema = Joi.object()
   .keys({
     title: Joi.string()
