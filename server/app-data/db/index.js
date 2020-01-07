@@ -1,11 +1,15 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const { dbName } = require('../config');
-const MONGO_URL = `mongodb://localhost:27017/${dbName}`; // production
+import {
+  MONGO_HOST, MONGO_USER, MONGO_PASSWORD,
+} from '../config';
 
 const mongoStart = async () => {
   try {
-    mongoose.connect(MONGO_URL, { useFindAndModify: false, useNewUrlParser: true });
+    mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}`, {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+    });
 
     const db = mongoose.connection;
 
@@ -16,4 +20,4 @@ const mongoStart = async () => {
   }
 };
 
-module.exports = mongoStart;
+export default mongoStart;

@@ -1,16 +1,16 @@
-const { gql } = require('apollo-server-express');
+import root from './root';
+import vendorTypeDefs from './vendor';
+import customerTypeDefs from './customer';
+import user from './user';
+import forum from './forum';
+import marketplace from './marketplace';
 
-const typeDefs = gql`
-  type dummyData {
-    _id: String
-    value: String
-  }
-  type Query {
-    dummyQuery: [dummyData]
-  }
-  schema {
-    query: Query
-  }
-`;
 
-module.exports = typeDefs;
+export default [
+  root,
+  user,
+  ...vendorTypeDefs,
+  ...customerTypeDefs,
+  forum,
+  ...marketplace,
+];
