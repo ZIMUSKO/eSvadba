@@ -21,11 +21,15 @@ export default createGlobalStyle`
     }
     #header{
       position:relative;
-      min-height:80vh;
-      top:84px;
+      margin-top:84px;
     }
     #blogforum{
       margin-top:5rem;
+    }
+    #random_inspiration{
+      .scroll-container{
+        width:100vw;
+      }
     }
   }
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  height: 620px;
+  height: 560px;
   width:100%;
   background-image: url(static/images/index/header.png);
   position: absolute;
@@ -9,16 +9,20 @@ export const Wrapper = styled.div`
   background-position-y: center;
   background-size: cover;
 `;
+export const HeaderHolder = styled.div`
+  position:relative;
+  height: 560px;
+`;
 
 export const H1 = styled.h1`
   font-family: 'PT Serif', serif;
-  font-size:3rem;
+  font-size: 2rem;
   color:white;
   font-weight:bold;
   text-transform:uppercase;
   margin:0;
   text-align:center;
-  padding-top: 12rem;
+  padding-top: 6rem;
   line-height: 3.5rem;
   letter-spacing: 3px;
 `;
@@ -28,7 +32,7 @@ export const H6 = styled.h6`
   font-family: 'PT Serif', serif;
   text-align:center;
   font-weight:400;
-  margin:0.7rem;
+  margin:1.7rem;
   letter-spacing: 1px;
 `;
 export const FindWrapper = styled.form`
@@ -39,7 +43,7 @@ export const FindWrapper = styled.form`
 `;
 export const FindServices = styled.input`
   width:50%;
-  padding: 1.4rem;
+  padding: 1rem;
   font-family: 'Ubuntu', sans-serif;
   font-size:0.9375rem;
   outline:none;
@@ -53,7 +57,7 @@ export const FindServices = styled.input`
 `;
 export const FindCity = styled.input`
   width:30%;
-  padding: 1.4rem;
+  padding: 1rem;
   font-family: 'Ubuntu', sans-serif;
   font-size:0.9375rem;
   outline:none;
@@ -64,7 +68,7 @@ export const FindCity = styled.input`
 `;
 export const Find = styled.button`
   width:20%;
-  padding: 1.4rem;
+  padding: 1rem;
   background-color:#18b4bc;
   color:white;
   font-family: 'PT Serif', serif;
@@ -74,4 +78,11 @@ export const Find = styled.button`
   border:none;
   text-transform:uppercase;
   letter-spacing:3px;
+`;
+export const Paper = styled.div`
+  background-image: url('/static/images/shared/paper.png');
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: -6px;
 `;

@@ -30,6 +30,7 @@
     "apollo-server-express": "^2.7.1",
     "bcrypt": "^3.0.6",
     "bootstrap": "^4.3.1",
+    "css-loader": "^3.2.0",
     "express": "^4.17.1",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
@@ -43,10 +44,14 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.4.0"
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^4.4.0",
+    "webpack": "^4.41.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.8.0",
     "babel-plugin-root-import": "^6.4.1",
     "eslint": "^5.16.0",

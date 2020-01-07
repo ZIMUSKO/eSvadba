@@ -1,10 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { Container, Row, Col } from '../../../../shared/styles/global.style';
-import BlogLink from '../../../../shared/components/BlogLink';
 
-import { BlogHolder, ForumHolder, H2 } from './styles/blogforum.style';
+import {
+  BlogHolder, ForumHolder, H2, ForumHeader, ForumText, Info, ForumLink, H2F, ForumButtom,
+} from './styles/blogforum.style';
+
+const BlogLink = dynamic(import('../../../../shared/components/BlogLink'));
 
 const BlogForum = () => {
   const blogData = [
@@ -30,6 +35,23 @@ const BlogForum = () => {
       link: 'https://google.com',
     },
   ];
+  const forumData = [
+    {
+      header: 'Wedding dresses!',
+      info: 'KOŠICE, Today at 8:49 AM',
+      text: 'Help I`m a new bride with had a lot of help. I`m the first girl to really get married in my Family. I`m not sure when..',
+    },
+    {
+      header: 'Wedding dresses!',
+      info: 'KOŠICE, Today at 8:49 AM',
+      text: 'Help I`m a new bride with had a lot of help. I`m the first girl to really get married in my Family. I`m not sure when..',
+    },
+    {
+      header: 'Wedding dresses!',
+      info: 'KOŠICE, Today at 8:49 AM',
+      text: 'Help I`m a new bride with had a lot of help. I`m the first girl to really get married in my Family. I`m not sure when..',
+    },
+  ];
   return (
     <>
       <Container id="blogforum">
@@ -52,6 +74,27 @@ const BlogForum = () => {
                 ))
               }
             </BlogHolder>
+          </Col>
+          <Col size={3}>
+            <H2F>FÓRUM</H2F>
+            <ForumHolder>
+              {
+                forumData.map(({
+                  header, info, text,
+                }, i) => (
+                  <ForumLink
+                    key={i}
+                  >
+                    <ForumHeader>{header}</ForumHeader>
+                    <Info>{info}</Info>
+                    <ForumText>{text}</ForumText>
+                  </ForumLink>
+                ))
+              }
+              <Link href="/forum">
+                <ForumButtom>Prejsť na fórum</ForumButtom>
+              </Link>
+            </ForumHolder>
           </Col>
         </Row>
       </Container>
