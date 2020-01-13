@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./server/index.js",
+    "dev": "nodemon -r esm ./server/index.js",
+    "deploy": "forever start --minUptime 2000 --spinSleepTime 5 ./server/index.js",
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
