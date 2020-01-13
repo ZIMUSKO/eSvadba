@@ -45,7 +45,7 @@ export const Container = styled.div`
 export const Row = styled.div`
   position: relative;
   width: 100%;
-
+  display:flex;
   & [class*="Col"] {
     float: left;
     margin: 0.5rem 2%;

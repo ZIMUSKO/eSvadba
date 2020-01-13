@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r esm ./server/index.js",
-    "deploy": "forever start --minUptime 2000 --spinSleepTime 5 ./server/index.js",
+    "dev": "nodemon ./server/index.js",
     "build": "next build",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,6 +31,7 @@
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
+    "css-loader": "^3.2.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
@@ -48,10 +48,14 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.4.0"
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^4.4.0",
+    "webpack": "^4.41.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.8.0",
     "babel-plugin-root-import": "^6.4.1",
     "eslint": "^5.16.0",

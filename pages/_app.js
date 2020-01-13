@@ -3,6 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import { ApolloProvider } from 'react-apollo';
 
+
 import withApollo from '../app-data/graphql/withApollo';
 
 const MyApp = (props) => {

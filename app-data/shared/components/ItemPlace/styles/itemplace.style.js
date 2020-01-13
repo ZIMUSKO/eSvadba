@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Holder = styled.div`
-  width:31%;
-  box-shadow: 0px 0px 60px 4px lightgrey;
+  box-shadow: 2px -2px 20px 4px #f3f3f3;
+  padding: .5rem;
 `;
 
 export const Image = styled.img`
@@ -12,7 +12,7 @@ export const Image = styled.img`
   width: 100%;
 `;
 export const H6 = styled.h6`
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-family: 'PT Serif', serif;
   color: rgb(87, 87, 87);
   font-weight: bold;
@@ -59,7 +59,7 @@ export const PriceFrom = styled.p`
   padding-bottom: 0;
 `;
 export const Price = styled.p`
-  font-size:1.125rem;
+  font-size:1rem;
   font-family: 'PT Serif', serif;
   color:white;
   font-weight:bold;
@@ -86,14 +86,14 @@ export const CapacityFrom = styled.p`
   padding-bottom: 0;
 `;
 export const Capacity = styled.p`
-  font-size:1.125rem;
+  font-size:1rem;
   font-family: 'PT Serif', serif;
   color:white;
   font-weight:bold;
   text-transform:uppercase;
   margin: 0;
   padding: 0;
-  padding-left: .7rem;
+  padding-left: .65rem;
   line-height: 1;
   padding-bottom: .7rem;
 `;
