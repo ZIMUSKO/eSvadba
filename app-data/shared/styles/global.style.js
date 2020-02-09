@@ -8,6 +8,10 @@ export default createGlobalStyle`
   @import url('https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css') screen;
   @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+  
+  body{
+    margin:0 !important;
+  }
   #__next {
     overflow: hidden;
     .navbar{

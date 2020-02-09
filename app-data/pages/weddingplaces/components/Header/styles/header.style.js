@@ -72,6 +72,12 @@ export const CategorySelect = styled.select`
     padding: 0px 2px 1px;
   }
 `;
+export const FinderHeader = styled.p`
+width:300px;
+  padding: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size:0.9375rem;
+`;
 export const FindCategory = styled.input`
   width: 268px;
   padding: 1rem;

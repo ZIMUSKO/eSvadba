@@ -4,7 +4,7 @@ import React from 'react';
 import { Container } from '../../../../shared/styles/global.style';
 
 import {
-  Wrapper, H1, H6, FindWrapper, FindCategory, Find, Paper, HeaderHolder, CategorySelect,
+  Wrapper, H1, H6, FindWrapper, FindCategory, Find, Paper, HeaderHolder, CategorySelect, FinderHeader
 } from './styles/header.style';
 
 const Header = () => (

@@ -7,7 +7,7 @@ import typeDefs from './typeDefs';
 
 const domain = 'localhost';
 const protocol = 'http';
-const port = 3003;
+const port = 4000;
 
 const customFetch = (uri, options) => {
   const token = getCookie('jwt', options);
